@@ -225,7 +225,10 @@ module Prawn
       #   cell.border_width = 2
       #
       def style(options={}, &block)
-        options.each { |k, v| send("#{k}=", v) }
+        options.each do |k, v|
+          method_name = "#{k}="
+          send(method_name, v) if respond_to? "#{k}="
+        end
 
         # The block form supports running a single block for multiple cells, as
         # in Cells#style.

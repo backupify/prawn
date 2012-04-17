@@ -86,6 +86,12 @@ describe "Prawn::Table::Cell" do
 
       c.style(:padding => 50, :size => 7)
     end
+
+    it "should ignore style options that the cell does not respond to" do
+      c = cell(:content => "text")
+
+      assert_nothing_raised { c.style(:bad_style_option => 9) }
+    end
   end
 
   describe "cell width" do
