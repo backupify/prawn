@@ -7,3 +7,5 @@ Gemfile.lock
 drop_to_console.rb
 manual.pdf
 /doc
+.idea
+atlassian-ide-plugin.xml
